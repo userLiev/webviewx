@@ -2,7 +2,7 @@ name: webviewx
 description: A feature-rich cross-platform webview using webview_flutter for
   mobile and iframe for web. JS interop-ready.
 homepage: https://github.com/adrianflutur/webviewx
-version: 0.3.0
+version: 0.4.0
 
 environment:
   sdk: ">=2.13.0 <3.0.0"
@@ -14,7 +14,7 @@ dependencies:
   path: ^1.8.2
   pointer_interceptor: ^0.9.3+3
   uuid: ^3.0.7
-  webview_flutter: ^3.0.2
+  webview_flutter: ^4.0.2
 
 dev_dependencies:
   flutter_test:
