@@ -205,7 +205,9 @@ class WebViewXState extends State<WebViewX> {
 
       /// Register dart callbacks one by one.
       for (final cb in widget.dartCallBacks) {
-        jsWindowObject[cb.name] = cb.callBack;
+        jsWindowObject[cb.name] = () {
+          cb.callBack('');
+        };
       }
 
       // Register history callback
