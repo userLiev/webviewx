@@ -196,7 +196,7 @@ class WebViewXState extends State<WebViewX> {
       )
       ..setUserAgent(widget.userAgent);
     for (final callback in widget.dartCallBacks) {
-      originalWebViewController.addJavaScriptChannel(
+      controller.addJavaScriptChannel(
         callback.name,
         onMessageReceived: (msg) => callback.callBack(msg.message),
       );
@@ -265,6 +265,7 @@ class WebViewXState extends State<WebViewX> {
 
   @override
   Widget build(BuildContext context) {
+    webViewXController.connector = originalWebViewController;
     if (widget.onWebViewCreated != null) {
       widget.onWebViewCreated!(webViewXController);
     }
