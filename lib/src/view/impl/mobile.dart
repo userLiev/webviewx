@@ -167,7 +167,7 @@ class WebViewXState extends State<WebViewX> {
         model.source,
         jsContent: widget.jsContent,
         // Needed for mobile webview in order to URI-encode the HTML
-        encodeHtml: true,
+        encodeHtml: false,
       ));
     }
     originalWebViewController.loadRequest(Uri.parse(model.source));
@@ -212,7 +212,7 @@ class WebViewXState extends State<WebViewX> {
         ..loadHtmlString(HtmlUtils.preprocessSource(
           widget.initialContent,
           jsContent: widget.jsContent,
-          encodeHtml: true,
+          encodeHtml: false,
         ));
     }
     return controller..loadRequest(Uri.parse(widget.initialContent));
@@ -250,7 +250,7 @@ class WebViewXState extends State<WebViewX> {
   }
 
   void onWebResourceError(wf.WebResourceError err) {
-    widget.onWebResourceError!(
+    widget.onWebResourceError?.call(
       WebResourceError(
         description: err.description,
         errorCode: err.errorCode,
