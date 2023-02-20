@@ -35,11 +35,11 @@ class WebViewX extends StatefulWidget implements view_interface.WebViewX {
 
   /// Widget width
   @override
-  final double width;
+  final String width;
 
   /// Widget height
   @override
-  final double height;
+  final String height;
 
   /// Callback which returns a reference to the [WebViewXController]
   /// being created.
@@ -300,15 +300,11 @@ class WebViewXState extends State<WebViewX> {
 
   @override
   Widget build(BuildContext context) {
-    final htmlElementView = SizedBox(
-      width: widget.width,
-      height: widget.height,
-      child: AbsorbPointer(
-        child: RepaintBoundary(
-          child: HtmlElementView(
-            key: widget.key,
-            viewType: iframeViewType,
-          ),
+    final htmlElementView = AbsorbPointer(
+      child: RepaintBoundary(
+        child: HtmlElementView(
+          key: widget.key,
+          viewType: iframeViewType,
         ),
       ),
     );
@@ -348,8 +344,8 @@ class WebViewXState extends State<WebViewX> {
       ..id = 'id_$iframeViewType'
       ..name = 'name_$iframeViewType'
       ..style.border = 'none'
-      ..width = widget.width.toInt().toString()
-      ..height = widget.height.toInt().toString()
+      ..width = widget.width
+      ..height = widget.height
       ..allowFullscreen = widget.webSpecificParams.webAllowFullscreenContent;
 
     widget.webSpecificParams.additionalSandboxOptions.forEach(

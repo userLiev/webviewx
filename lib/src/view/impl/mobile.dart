@@ -28,11 +28,11 @@ class WebViewX extends StatefulWidget implements view_interface.WebViewX {
 
   /// Widget width
   @override
-  final double width;
+  final String width;
 
   /// Widget height
   @override
-  final double height;
+  final String height;
 
   /// Callback which returns a reference to the [WebViewXController]
   /// being created.
@@ -269,18 +269,13 @@ class WebViewXState extends State<WebViewX> {
     if (widget.onWebViewCreated != null) {
       widget.onWebViewCreated!(webViewXController);
     }
-
-    return SizedBox(
-      width: widget.width,
-      height: widget.height,
-      child: IgnorePointer(
-        ignoring: _ignoreAllGestures,
-        child: wf.WebViewWidget(
-          key: widget.key,
-          controller: originalWebViewController,
-          gestureRecognizers:
-              widget.mobileSpecificParams.mobileGestureRecognizers ?? {},
-        ),
+    return IgnorePointer(
+      ignoring: _ignoreAllGestures,
+      child: wf.WebViewWidget(
+        key: widget.key,
+        controller: originalWebViewController,
+        gestureRecognizers:
+            widget.mobileSpecificParams.mobileGestureRecognizers ?? {},
       ),
     );
   }

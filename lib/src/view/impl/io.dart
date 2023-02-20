@@ -27,11 +27,11 @@ class WebViewX extends StatelessWidget implements view_interface.WebViewX {
 
   /// Widget width
   @override
-  final double width;
+  final String width;
 
   /// Widget height
   @override
-  final double height;
+  final String height;
 
   /// Callback which returns a reference to the [WebViewXController]
   /// being created.

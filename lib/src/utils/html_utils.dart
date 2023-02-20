@@ -51,6 +51,8 @@ class HtmlUtils {
   /// and/or URI-encodes it.
   static String preprocessSource(
     String src, {
+    String width = '100%',
+    String heigth = '100vh',
     Set<EmbeddedJsContent> jsContent = const {},
     bool forWeb = false,
     bool encodeHtml = false,
